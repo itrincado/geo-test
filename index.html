@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FenceMadrid</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+    <link rel="stylesheet" href="css/L.Control.Window.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/wow-alert.css">
+    <!-- <link rel="shortcut icon" href="http://cartodb.com/assets/favicon.ico" />
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" /> -->
+    <!-- <link rel="stylesheet" href="css/leaflet.css" /> -->
+    <!-- <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
+
+    <!-- <script src="src/leaflet.js" type="text/javascript"></script> -->
+
+  </head>
+  <body>
+    <a href="#"><i id="eventos" class="fa fa-2x text-success"></i></a>
+
+    <!-- <div id="wrapper" ></div> -->
+      <!-- <div id="header">
+      </div> -->
+    <div id="layer_selector" class="cartodb-infobox">
+        <ul>
+          <li href="select.php"><i id="cero" class="fa fa-2x fa-fw fa-angle-double-left fa-border text-warning"></i></li>
+          <li href="#"><i id="uno" class="fa fa-2x fa-fw fa-life-ring fa-border text-danger"></i></li>
+          <li href="#"><i id="dos" class="fa fa-2x fa-fw fa-book fa-border text-warning"></i></li>
+          <li href="#"><i id="tres" class="fa fa-2x fa-fw fa-tree fa-border text-success"></i></li>
+          <li href="#"><i id="cuatro" class="fa fa-2x fa-fw fa-cubes fa-border text-danger"></i></li>
+          <li href="#"><i id="cinco" class="fa fa-2x fa-fw fa-flask fa-border text-warning"></i></li>
+          <li href="#"><i id="seis" class="fa fa-2x fa-fw fa-diamond fa-border text-success"></i></li>
+          <li href="#"><i id="siete" class="fa fa-2x fa-fw fa-sun-o fa-border text-danger"></i></li>
+          <li href="#"><i id="info" class="fa fa-2x fa-fw fa-info fa-border text-warning"></i></li>
+          <li href="#"><i id="ocho" class="fa fa-2x fa-fw fa-diamond fa-border text-success"></i></li>
+
+        </ul>
+    </div>
+
+    <div id="map">
+      <a href="#"><i id="tiempo" class="fa fa-2x fa-border text-success"></i></a>
+
+    </div>
+    <div id="aviso"></div>
+    <div id="actions">...</div>
+    <!-- <script>
+
+    var map = L.map('map',{});
+    map.locate({setView: true, watch: false, zoom: 1}) /* This will return map so you can do chaining */
+      .on('locationfound', function(e){
+        locationMarker = L.marker(e.latlng).addTo(map)
+
+           var circle = L.circle([e.latitude, e.longitude], 5000, {
+               weight: 0.5,
+               color: '#15830f',
+               fillColor: '#65a262',
+               fillOpacity: 0.17,
+               fill: false
+           });
+           var circle2 = L.circle([e.latitude, e.longitude], 15000, {
+               weight: 0.5,
+               color: '#15830f',
+               fillColor: '#65a262',
+               fillOpacity: 0.14,
+               fill: false
+
+           });
+           var circle3 = L.circle([e.latitude, e.longitude], 30000, {
+               weight: 0.6,
+               color: '#15830f',
+               fillColor: '#65a262',
+               fillOpacity: 0.11,
+               fill: false
+
+           });
+           map.addLayer(circle);
+           map.addLayer(circle2);
+           map.addLayer(circle3);
+
+
+
+              });
+    L.tileLayer('http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png', {
+      // attribution: '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    // Create Global Variable to hold CartoDB points
+    var cartoDBPoints = null;
+    var cartoDBUsername = "feedmestart";
+    // Selector de capas, layers
+    var $options = $('#layer_selector li');
+
+  $options.click(function(e) {
+      // get the area of the selected layer
+      var $li = $(e.target);
+      var data = $li.attr('data');
+      $options.removeClass('selected');
+      $li.addClass('selected');
+      // create query based on data from the layer
+      var sqlQuery = "select * from alfonso";
+      if(data !== 'all') {
+        sqlQuery = "select * from alfonso where siglo in ('" + data + "')";
+      }
+      // Get CartoDB selection as GeoJSON and Add to Map
+      function getGeoJSON(){
+        $.getJSON("https://"+cartoDBUsername+".cartodb.com/api/v2/sql?format=GeoJSON&q="+sqlQuery, function(data) {
+          cartoDBPoints = L.geoJson(data,{
+            pointToLayer: function(feature,latlng){
+              // var marker = L.marker(latlng);
+              // marker.on('click',function(){
+              //     var win =  L.control.window(map,{title:feature.properties.producto,maxWidth:400,modal: true})
+              //             .content('<em>Familia: </em>'+ feature.properties.familia + '<br /><em>Producto: </em>' + feature.properties.producto + '<br />' + feature.properties.oferta +'</p>')
+              //             .prompt({callback:function(){
+              //              }})
+              //             .show()
+              //    });
+              var circulos = L.circle(latlng, 35, {color:'blue', opacity:'0.0001'}).addTo(map);
+              circulos.on('click',function(){
+                var contenido = feature.properties.tema;
+                alert ("Localizado:</br>"+contenido);
+                  var win =  L.control.window(map,{title:'<MARQUEE scrolldelay=140 direction=left>'+feature.properties.tema+'</MARQUEE>',maxWidth:400,modal: true,position:'topLeft'})
+                          .content(feature.properties.contenido)
+                          .prompt({callback:function(){
+                           }})
+                          .show()
+                 });
+
+              var circleB = circulos.getBounds();
+              if(circleB.contains([locationMarker._latlng.lat,locationMarker._latlng.lng])){
+                L.control.window(map,{title:feature.properties.familia,maxWidth:400,modal: true})
+                        .content(feature.properties.producto)
+                        .show()
+                  }
+              return circulos;
+
+              // marker.bindPopup('<em>Familia: </em>'+ feature.properties.familia + '<br /><em>Producto: </em>' + feature.properties.producto + '<br />' + feature.properties.oferta +'</p>');
+              // return marker;
+            }
+          }).addTo(map);
+        });
+      };
+
+      // Run showAll function automatically when document loads
+      $( document ).ready(function() {
+      refreshLayer();
+      // getGeoJSON();
+      });
+
+      function refreshLayer() {
+        if (map.hasLayer(cartoDBPoints)) {
+            map.removeLayer(cartoDBPoints);
+          };
+        // map.removeLayer(circulos);
+        map.removeLayer(locationMarker);
+        getGeoJSON();
+      };
+
+  });
+
+    </script> -->
+  </body>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="src/jQuery.js" type="text/javascript"></script>
+  <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="src/L.Control.Window.js"></script>
+  <script type="text/javascript" src="src/wow-alert.js"></script>
+  <script type="text/javascript" src="src/main2.js"></script>
+
+</html>

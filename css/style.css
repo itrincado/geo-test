@@ -1,0 +1,321 @@
+/*body {
+}*/
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);*/
+/*@font-face {
+    font-family: Ibarra;
+    src: url(IBitalic.otf);
+}*/
+body {
+	background: black;
+  margin: 0px;
+  font-family: 'Kaushan Script';
+  /*background-image: url('../images/calzada1.jpg');*/
+
+}
+
+fieldset {
+  padding: 1em;
+  font:80%/1 sans-serif;
+  }
+label {
+  float:left;
+  width:100%;
+  margin-right:0.5em;
+  padding-top:0.2em;
+  text-align:left;
+  font-weight:bold;
+  }
+
+img {
+  float: left;
+  padding-right: 10px;
+}
+
+p {
+  font-size: 12px;
+  /*line-height: 25px;*/
+}
+
+h1 {
+  line-height: 60px;
+  margin-left: 180px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-weight: lighter;
+}
+#layer_selector {
+	position: absolute;
+	top: 285px;
+	/*left: 5px;*/
+	padding: 3px;
+	z-index: 7000;
+			width: auto;
+			float: left;
+	   	/*padding: 0;*/
+	 	 	text-align: inline-block;
+			background-color: black;
+      /*background-image:url('../images/calzada1.jpg');
+      background-repeat:repeat;*/
+			margin-left: 12px;
+			margin-right: 12px;
+}
+
+#layer_selector ul {
+	padding: 0; margin: 0;
+	list-style-type: none;
+}
+
+#layer_selector li {
+	border-bottom: 1px solid #999;
+	padding: 1px 1px;
+	font-family: "Kaushan Script", Arial;
+	font-size: 12px;
+	color: #444;
+	/*color: white;*/
+	cursor: auto;
+	text-align: center;
+	display: inline-block;
+		list-style-type: none;
+}
+
+#layer_selector li:hover {
+	background-color: #F0F0F0;
+	cursor: pointer;
+}
+
+#layer_selector li.selected {
+	background-color: #EEE;
+}
+
+/*#wrapper {
+  background-color: transparent;
+	color: black;
+  background-image:url('../images/fondo2.jpg');
+  background-repeat:no-repeat;
+  width: auto;
+	height: 45px;
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-right: 5px;
+}*/
+
+#map {
+  width: auto;
+  /*margin: 0 auto;*/
+  height: 270px;
+  border: 1px solid #ccc;
+	margin-left: 15px;
+	margin-top: 3px;
+	margin-right: 15px;
+  /*max-width: 330px;*/
+	background-color: "black";
+}
+#actions{
+	background-color: #DE6060;
+	width: 100%;
+	height: 20%;
+	z-index: 1;
+	position: relative;
+	text-align: center;
+	color: #fff;
+	font-size: 1em;
+
+}
+#aviso{
+	background-color: #7eeaab;
+	width: 100%;
+	height: 4%;
+	z-index: 1;
+	position: relative;
+	text-align: center;
+	color: #fff;
+	font-size: 1em;
+
+
+
+}
+/*#controls {
+  width: 100%;
+  margin: 0 auto;
+  margin-left: 180px;
+}
+
+#form {
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: left;
+  line-height: 16px;
+  width:375px;
+  float: left;
+}*/
+
+/*#header {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#credits p {
+  margin-top: 5px;
+  font-size: 12px;
+  text-align: right;
+  line-height: 16px;
+}*/
+
+/*.ui-dialog, .ui-dialog-content {*/
+/*border:5px solid brown;   /** change css properties to match your theme*/
+/*background-color: grey !important;*/
+/*color: black;*/
+/*}*/
+/*.ui-dialog-titlebar {*/
+/*background-image: none;  /** change css properties to match your theme*/
+ /*background-color: #FFFFCC;
+ color: black;
+}*/
+
+
+/*#actions{
+
+	background-image: url("images/madre2.jpg");
+	background-repeat: no-repeat;
+	background-color: black;
+	width: auto;
+	height: 99px;
+	z-index: 1;
+	position: relative;
+	text-align: center;
+	color: black;
+	font-size: 12px;
+	margin-left: 5px;
+	margin-top: 3px;
+
+}*/
+/*#aviso{
+	background-color: white;
+	width: 100%;
+	height: 80px;
+	z-index: 1;
+	position: relative;
+	text-align: left;
+	color: black;
+	font-size: 12px;
+	margin-left: 5px;
+	margin-top: 3px;
+
+}*/
+
+#tiempo{
+	/*font-family: 'Open Sans', Helvetica, sans-serif;*/
+	/*background-color: black;*/
+	/*width: 100%;
+	height: 120px;
+	z-index: 1;*/
+	/*position: relative;*/
+	/*text-align: left;*/
+	/*color: red;
+	font-size: 16px;
+	margin-left: 271px;
+	margin-top: 7px;*/
+  border-radius: 3px;
+  font-family: 'Kaushan Script';
+  background-color: white;
+  /*text-align: left;*/
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  /*margin-right: 3px;*/
+  margin-left: 40px;
+  z-index: 2;
+
+}
+
+/*#monedas{
+	background-color: black;
+	width: auto;*/
+	/*height: 120px;*/
+	/*z-index: 1;*/
+	/*position: relative;*/
+	/*text-align: center;*/
+	/*color: yellow;
+	font-size: 16px;
+	margin-left: 5px;*/
+	/*margin-top: 7px;*/
+	/*margin-bottom: 3px;*/
+
+/*}*/
+
+/*#cero {
+
+  margin-left: 5px;
+  margin-bottom: 0px;
+}
+
+#uno {
+	margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 0px;
+	text: center;
+
+}
+#dos {
+	margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 0px;
+}
+#tres {
+	margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 0px;
+}
+#cuatro {
+	margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 0px;
+}
+#cinco {
+	margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 0px;
+}
+#seis {
+	margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 0px;
+}
+#siete {
+	margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 0px;
+}
+#ocho {
+	margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 0px;
+}
+#info {
+	margin-top: 3px;
+  margin-left: 3px;
+  margin-bottom: 0px;
+}*/
+
+#eventos{
+	background-color: black;
+	width: 100%;
+	height: 18px;
+	z-index: 1;
+	/*position: relative;*/
+	/*text-align: center;*/
+	color: yellow;
+	font-size: 18px;
+	/*margin-left: 5px;
+	/*margin-top: 3px;
+	margin-bottom: 3px;*/
+  font-family: "Kaushan Script", Arial;
+  padding-bottom:0.5em;
+	text-align: right;
+	/*border: 1px solid grey;*/
+  /*background-image:url('../images/uccello.jpg');
+  background-repeat:repeat;*/
+
+
+
+}
